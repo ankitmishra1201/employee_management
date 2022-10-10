@@ -7,7 +7,11 @@ const createTask = async (req, res) =>{
 
     var countdownend=new Date(Date.parse(end_time)).getTime()
     var countdownbegin=new Date(Date.now(start_time)).getTime()
-    var countdown=countdownend-countdownbegin;
+   if(countdownend-countdownbegin>=0)
+   var countdown=countdownend-countdownbegin;
+   else{
+         var countdown=0;
+   }
 
     const newTask = new Task({
         title: title,
